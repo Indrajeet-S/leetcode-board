@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ModeToggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
@@ -83,9 +83,10 @@ export default function Home() {
                 className="text-red-500 bg-green-500 hover:bg-blue-500"
                 variant="destructive"
               >
-                {" "}
                 Hello sir
               </Button>
+              <p></p>
+              <ModeToggle />
             </div>
             <div className="pt-8 text-base font-semibold leading-7">
               <p className="text-gray-900">Want to dig deeper into Tailwind?</p>

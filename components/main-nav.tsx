@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
-import { Target } from "lucide-react"
+import Image from 'next/image';
 // import { Icons } from "@/components/icons"
 
 export function MainNav() {
@@ -15,6 +15,7 @@ export function MainNav() {
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         {/* <Icons.logo className="h-6 w-6" /> */}
+        <Image src="/logo.png" alt="Logo" width={30} height={30} />
         <span className="hidden font-bold sm:inline-block">
           {/* {siteConfig.name} */}
           LC Board

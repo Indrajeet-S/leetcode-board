@@ -32,6 +32,7 @@ export function MainNav() {
         </Link> */}
         <Link
           href="https://leetcode.com/problemset/"
+          target="_blank"
           className={cn(
             "transition-colors hover:text-foreground/80",
             "text-foreground/60", 
@@ -41,6 +42,7 @@ export function MainNav() {
         </Link>
         <Link
           href="https://leetcode.com/contest/"
+          target="_blank"
           className={cn(
             "transition-colors hover:text-foreground/80",
             "text-foreground/60"

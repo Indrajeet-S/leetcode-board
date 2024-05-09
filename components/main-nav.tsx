@@ -54,7 +54,7 @@ export function MainNav() {
           href="/community-communication"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            "text-foreground/60"
+            pathname === "/community-communication" ? "text-foreground" : "text-foreground/60"
           )}
         >
           Communicate

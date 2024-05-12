@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
-import Image from 'next/image';
+import Image from "next/image"
 // import { Icons } from "@/components/icons"
 
 export function MainNav() {
@@ -36,7 +36,7 @@ export function MainNav() {
           target="_blank"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            "text-foreground/60", 
+            "text-foreground/60"
           )}
         >
           Problems
@@ -55,7 +55,9 @@ export function MainNav() {
           href="/community-communication"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname === "/community-communication" ? "text-foreground" : "text-foreground/60"
+            pathname === "/community-communication"
+              ? "text-foreground"
+              : "text-foreground/60"
           )}
         >
           Communicate

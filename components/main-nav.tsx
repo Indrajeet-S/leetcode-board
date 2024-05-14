@@ -32,8 +32,7 @@ export function MainNav() {
           Docs
         </Link> */}
         <Link
-          href="https://leetcode.com/problemset/"
-          target="_blank"
+          href="/problems"
           className={cn(
             "transition-colors hover:text-foreground/80",
             "text-foreground/60"

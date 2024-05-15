@@ -35,7 +35,7 @@ export function MainNav() {
           href="/problems"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            "text-foreground/60"
+            pathname === "/problems" ? "text-foreground" : "text-foreground/60"
           )}
         >
           Problems

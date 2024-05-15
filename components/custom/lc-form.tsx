@@ -18,22 +18,25 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-  ID: z.string().min(1, {
-    message: "Problem ID must be at least 1 character.",
-  }),
+  ID: z
+    .string()
+    .min(1, { message: "Problem ID must be at least 1 character" })
+    .refine((value) => parseInt(value) > 0, {
+      message: "ID must be greater than zero",
+    }),
 })
 
 export function ProblemIDForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      ID: "",
+      ID: undefined,
     },
   })
 
   const router = useRouter()
   function onSubmit(values: z.infer<typeof FormSchema>) {
-    console.log(values)
+    // console.log(values)
     router.push(`/problems/${values.ID}`)
   }
 
@@ -47,7 +50,7 @@ export function ProblemIDForm() {
             <FormItem>
               <FormLabel className="flex justify-center">Problem ID</FormLabel>
               <FormControl>
-                <Input placeholder="Enter ID here" {...field} />
+                <Input type="number" placeholder="Enter ID here" {...field} />
               </FormControl>
               <FormDescription>LeetCode problem ID</FormDescription>
               <FormMessage />

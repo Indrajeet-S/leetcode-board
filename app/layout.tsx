@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/site-footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "LeetCode Borad",
+  title: "LeetCode Board",
   description: "Virtual Sketchpad for LeetCode problems",
 }
 

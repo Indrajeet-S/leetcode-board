@@ -61,17 +61,16 @@ export function MainNav() {
         >
           Communicate
         </Link>
-        {/* <Link
-          href="/blocks"
+        <Link
+          href="https://excalidraw.com/"
+          target="_blank"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/blocks")
-              ? "text-foreground"
-              : "text-foreground/60"
+            "text-foreground/60"
           )}
         >
-          Blocks
-        </Link> */}
+          Whiteboard
+        </Link>
         {/* <Link
           href={siteConfig.links.github}
           className={cn(

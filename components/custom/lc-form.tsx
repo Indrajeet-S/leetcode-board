@@ -45,7 +45,7 @@ export function ProblemIDForm() {
             <FormItem>
               <FormLabel className="flex justify-center">Problem ID</FormLabel>
               <FormControl>
-                <Input type="number" placeholder="Enter ID here" {...field} />
+                <Input placeholder="Enter ID here" {...field} />
               </FormControl>
               <FormDescription>LeetCode problem ID</FormDescription>
               <FormMessage />

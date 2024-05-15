@@ -9,7 +9,7 @@ export const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: "Problems",
-      href: "https://leetcode.com/problemset/",
+      href: "/problems",
     },
     {
       title: "Contest",
@@ -34,7 +34,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Whiteboard",
-          href: "/",
+          href: "https://excalidraw.com/",
           items: [],
         },
         //       {

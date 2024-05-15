@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-  ID: z.string().min(2, {
+  ID: z.string().min(1, {
     message: "Problem ID must be at least 1 character.",
   }),
 })

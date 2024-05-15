@@ -18,12 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
-  ID: z
-    .string()
-    .min(1, { message: "Problem ID must be at least 1 character" })
-    .refine((value) => parseInt(value) > 0, {
-      message: "ID must be greater than zero",
-    }),
+  ID: z.coerce.number().int().positive().finite(),
 })
 
 export function ProblemIDForm() {

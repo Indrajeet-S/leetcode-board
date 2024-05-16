@@ -69,7 +69,7 @@ export function MainNav() {
             "text-foreground/60"
           )}
         >
-          Whiteboard
+          Sketchpad
         </Link>
         {/* <Link
           href={siteConfig.links.github}

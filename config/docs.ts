@@ -33,7 +33,7 @@ export const docsConfig: DocsConfig = {
       title: "Getting Started",
       items: [
         {
-          title: "Whiteboard",
+          title: "Sketchpad",
           href: "https://excalidraw.com/",
           items: [],
         },

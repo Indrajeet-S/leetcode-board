@@ -1,4 +1,9 @@
 import { ProblemIDForm } from "@/components/custom/lc-form"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Problems - LC Board",
+}
 
 export default function Problems() {
   return (

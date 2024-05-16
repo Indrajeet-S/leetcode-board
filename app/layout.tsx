@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "LeetCode Board",
-  description: "Virtual Sketchpad for LeetCode problems",
+  description: "Virtual Whiteboard for LeetCode problems",
 }
 
 export default function RootLayout({

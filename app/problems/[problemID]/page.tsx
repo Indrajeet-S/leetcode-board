@@ -1,3 +1,9 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Whiteboard - LC Board",
+}
+
 export default function ProblemID({
   params,
 }: {

@@ -1,6 +1,11 @@
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeToggle } from "@/components/mode-toggle"
+import Link from "next/link"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+import { Icons } from "@/components/icons"
 
 export function SiteHeader() {
   return (
@@ -13,6 +18,25 @@ export function SiteHeader() {
         </div>
         {/* Mode toggle always aligned to the right */}
         <div className="flex items-center">
+          <div className="mr-3">
+            <Link
+              href={siteConfig.links.discord}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                  }),
+                  "w-9 px-0"
+                )}
+              >
+                <Icons.discord className="h-3 w-3 fill-current" />
+                <span className="sr-only">Discord</span>
+              </div>
+            </Link>
+          </div>
           <ModeToggle />
         </div>
       </div>

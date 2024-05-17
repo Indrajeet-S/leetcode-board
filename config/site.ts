@@ -5,6 +5,7 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/QBit__",
     github: "https://github.com/Indrajeet-S",
+    discord: "https://discord.com/users/858742600550580234",
   },
 }
 

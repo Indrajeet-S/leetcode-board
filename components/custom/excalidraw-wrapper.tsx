@@ -12,11 +12,7 @@ const ExcalidrawWrapper: React.FC = () => {
   // },]));
   return (
     <div className="flex h-screen">
-      <main className="flex-grow">
-        <div className="h-full">
-          <Excalidraw />
-        </div>
-      </main>
+      <Excalidraw />
     </div>
   )
 }

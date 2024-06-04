@@ -3,7 +3,6 @@ import { Excalidraw, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw"
 import Link from "next/link"
 import Image from "next/image"
 import * as React from "react"
-import { Main } from "next/document"
 
 // import "@excalidraw/excalidraw/index.css"
 

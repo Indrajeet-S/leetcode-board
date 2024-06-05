@@ -1,6 +1,10 @@
 import type { Metadata } from "next"
-import DiscordEmbed from "@/components/custom/discord-embed"
-import { Disc } from "lucide-react"
+import dynamic from "next/dynamic"
+// Dynamically import the Discordembed component
+const DiscordEmbed = dynamic(
+  () => import("@/components/custom/discord-embed"),
+  { ssr: false }
+)
 
 export const metadata: Metadata = {
   title: "Communicate - LC Board",

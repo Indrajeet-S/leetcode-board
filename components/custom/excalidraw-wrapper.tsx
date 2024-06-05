@@ -33,7 +33,6 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
     if (content != null) {
       return JSON.parse(content)
     }
-    ;`excalidraw_${problem_ID}`
   }
 
   return (

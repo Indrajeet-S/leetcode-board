@@ -10,22 +10,30 @@ import * as React from "react"
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
 import { AppState, BinaryFiles } from "@excalidraw/excalidraw/types/types"
 
-const ExcalidrawWrapper: React.FC = () => {
+interface ExcalidrawWrapperProps {
+  problem_ID: string
+}
+
+const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
+  problem_ID,
+}) => {
   const on_change = (
     elements: readonly ExcalidrawElement[],
     appState: AppState,
     files: BinaryFiles
   ) => {
     console.log("Function invoked")
+    console.log(`excalidraw_${problem_ID}`)
     const content = serializeAsJSON(elements, appState, files, "local")
-    localStorage.setItem("excalidraw", content)
+    localStorage.setItem(`excalidraw_${problem_ID}`, content)
   }
 
   const retriveInitialData = () => {
-    const content = localStorage.getItem("excalidraw")
+    const content = localStorage.getItem(`excalidraw_${problem_ID}`)
     if (content != null) {
       return JSON.parse(content)
     }
+    ;`excalidraw_${problem_ID}`
   }
 
   return (

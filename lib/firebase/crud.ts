@@ -1,6 +1,6 @@
 // TODO : Use a module bundler for size reduction
 import { initializeApp } from "firebase/app"
-import { getFirestore, getDoc, doc } from "firebase/firestore/lite"
+import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite"
 
 // TODO : Use environment variables. Do not add API keys to version control.
 
@@ -40,3 +40,18 @@ async function getDocumentData(collectionName: string, documentId: string) {
     throw error
   }
 }
+
+async function saveDocumentData(
+  collectionName: string,
+  documentId: string,
+  data: any
+) {
+  try {
+    const docRef = doc(db, collectionName, documentId)
+    await setDoc(docRef, data)
+  } catch (error) {
+    throw error
+  }
+}
+
+export { getDocumentData, saveDocumentData }

@@ -9,6 +9,7 @@ import Image from "next/image"
 import * as React from "react"
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
 import { AppState, BinaryFiles } from "@excalidraw/excalidraw/types/types"
+import { getDocumentData, saveDocumentData } from "@/lib/firebase/crud"
 
 interface ExcalidrawWrapperProps {
   problem_ID: string
@@ -17,7 +18,7 @@ interface ExcalidrawWrapperProps {
 const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
   problem_ID,
 }) => {
-  const on_change = (
+  const on_change = async (
     elements: readonly ExcalidrawElement[],
     appState: AppState,
     files: BinaryFiles
@@ -25,14 +26,42 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
     console.log("Function invoked")
     console.log(`excalidraw_${problem_ID}`)
     const content = serializeAsJSON(elements, appState, files, "local")
-    localStorage.setItem(`excalidraw_${problem_ID}`, content)
+
+    try {
+      await saveDocumentData("excalidraw", problem_ID, { content })
+      console.log("Data saved to Firestore")
+    } catch (error) {
+      console.error("Error saving data to Firestore:", error)
+    }
   }
 
-  const retriveInitialData = () => {
-    const content = localStorage.getItem(`excalidraw_${problem_ID}`)
-    if (content != null) {
-      return JSON.parse(content)
+  const retriveInitialData = async () => {
+    try {
+      const data = await getDocumentData("excalidraw", problem_ID)
+      if (data && data.content) {
+        return JSON.parse(data.content)
+      }
+    } catch (error) {
+      console.error("Error retrieving data from Firestore:", error)
     }
+    return null
+  }
+
+  const [initialData, setInitialData] = React.useState<any>(null)
+  const [loading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const data = await retriveInitialData()
+      setInitialData(data)
+      setLoading(false)
+    }
+
+    fetchData()
+  }, [problem_ID])
+
+  if (loading) {
+    return <div>Loading...</div>
   }
 
   return (

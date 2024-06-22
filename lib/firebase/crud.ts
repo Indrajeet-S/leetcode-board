@@ -2,8 +2,6 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite"
 
-// TODO : Use environment variables. Do not add API keys to version control.
-
 // Web app's Firebase configuration
 const firebaseConfig = {
   apiKey: `${process.env.NEXTJS_APP_API_KEY}`,

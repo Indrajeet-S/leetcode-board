@@ -12,12 +12,12 @@ export const docsConfig: DocsConfig = {
       href: "/problems",
     },
     {
-      title: "Contest",
-      href: "https://leetcode.com/contest/",
-    },
-    {
       title: "Communicate",
       href: "/community-communication",
+    },
+    {
+      title: "Contest",
+      href: "https://leetcode.com/contest/",
     },
     // {
     //   title: "Examples",
@@ -30,7 +30,7 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: "Getting Started",
+      title: "More",
       items: [
         {
           title: "Sketchpad",

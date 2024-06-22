@@ -41,16 +41,6 @@ export function MainNav() {
           Problems
         </Link>
         <Link
-          href="https://leetcode.com/contest/"
-          target="_blank"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            "text-foreground/60"
-          )}
-        >
-          Contest
-        </Link>
-        <Link
           href="/community-communication"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -60,6 +50,16 @@ export function MainNav() {
           )}
         >
           Communicate
+        </Link>
+        <Link
+          href="https://leetcode.com/contest/"
+          target="_blank"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            "text-foreground/60"
+          )}
+        >
+          Contest
         </Link>
         <Link
           href="https://excalidraw.com/"

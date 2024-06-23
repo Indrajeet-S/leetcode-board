@@ -1,6 +1,7 @@
 "use client"
 import {
   Excalidraw,
+  getSceneVersion,
   MainMenu,
   serializeAsJSON,
   WelcomeScreen,
@@ -12,32 +13,39 @@ import { AppState, BinaryFiles } from "@excalidraw/excalidraw/types/types"
 import { getDocumentData, saveDocumentData } from "@/lib/firebase/crud"
 
 interface ExcalidrawWrapperProps {
-  problem_ID: string
+  identifier: string
 }
 
 const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
-  problem_ID,
+  identifier,
 }) => {
+  let lastSceneVersion = -1
   const on_change = async (
     elements: readonly ExcalidrawElement[],
     appState: AppState,
     files: BinaryFiles
   ) => {
     console.log("Function invoked")
-    console.log(`excalidraw_${problem_ID}`)
-    const content = serializeAsJSON(elements, appState, files, "local")
+    console.log(`excalidraw_${identifier}`)
 
-    try {
-      await saveDocumentData("excalidraw", problem_ID, { content })
-      console.log("Data saved to Firestore")
-    } catch (error) {
-      console.error("Error saving data to Firestore:", error)
+    const sceneVersion = getSceneVersion(elements)
+    if (sceneVersion > lastSceneVersion) {
+      console.log("caching")
+      const content = serializeAsJSON(elements, appState, files, "local")
+
+      try {
+        await saveDocumentData("excalidraw", identifier, { content })
+        console.log("Data saved to Firestore")
+      } catch (error) {
+        console.error("Error saving data to Firestore:", error)
+      }
+      lastSceneVersion = sceneVersion
     }
   }
 
   const retriveInitialData = async () => {
     try {
-      const data = await getDocumentData("excalidraw", problem_ID)
+      const data = await getDocumentData("excalidraw", identifier)
       if (data && data.content) {
         return JSON.parse(data.content)
       }
@@ -58,7 +66,7 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
     }
 
     fetchData()
-  }, [problem_ID])
+  }, [identifier])
 
   if (loading) {
     return <div>Loading...</div>

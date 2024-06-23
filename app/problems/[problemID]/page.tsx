@@ -23,7 +23,7 @@ export default function ProblemID({ params }: Props) {
     //   </div>
     // </div>
     <div className="z-100">
-      <ExcalidrawWrapper problem_ID={params.problemID} />
+      <ExcalidrawWrapper identifier={params.problemID} />
     </div>
   )
 }

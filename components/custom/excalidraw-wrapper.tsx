@@ -62,15 +62,15 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
     const fetchData = async () => {
       const data = await retriveInitialData()
       setInitialData(data)
-      setLoading(false)
+      // setLoading(false)
     }
 
     fetchData()
   }, [identifier])
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>
+  // }
 
   return (
     <div style={{ height: "90.5vh", width: "100%" }}>

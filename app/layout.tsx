@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Suspense } from "react"
 import Loading from "@/app/loading"
+import SessionWrapper from "@/components/custom/session-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,18 +25,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SiteHeader />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <SiteFooter />
-        </ThemeProvider>
-      </body>
+      <SessionWrapper>
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SiteHeader />
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <SiteFooter />
+          </ThemeProvider>
+        </body>
+      </SessionWrapper>
     </html>
   )
 }

@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
@@ -18,6 +19,16 @@ export function SiteHeader() {
         </div>
         {/* Mode toggle always aligned to the right */}
         <div className="flex items-center">
+          <div className="mr-3">
+            <Button className="bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-1 px-3 rounded-lg">
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
+          </div>
+          <div>
+            <Button variant="secondary">
+              <Link href="/login">Login</Link>
+            </Button>
+          </div>
           <div className="mr-3">
             <Link
               href={siteConfig.links.discord}

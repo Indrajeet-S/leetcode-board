@@ -34,7 +34,7 @@ export function LoginForm() {
         <Button className="w-full">Sign in</Button>
       </CardFooter>
       <div className="mt-4 text-center text-sm">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link href="/sign-up" className="underline">
           Sign Up
         </Link>

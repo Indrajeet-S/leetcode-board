@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import ExcalidrawWrapper from "@/components/custom/excalidraw-wrapper"
+import { Suspense } from "react"
+import ExcalidrawSkeleton from "@/app/problems/[problemID]/loading"
 
 type Props = {
   params: {
@@ -22,8 +24,10 @@ export default function ProblemID({ params }: Props) {
     //     </div>
     //   </div>
     // </div>
-    <div className="z-100">
-      <ExcalidrawWrapper identifier={params.problemID} />
-    </div>
+    <Suspense fallback={<ExcalidrawSkeleton />}>
+      <div className="z-100">
+        <ExcalidrawWrapper identifier={params.problemID} />
+      </div>
+    </Suspense>
   )
 }

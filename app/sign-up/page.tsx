@@ -18,8 +18,10 @@ export default function SignUpPage() {
 
   return (
     <Suspense>
-      <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
-        <SignUpForm />
+      <div className="z-10">
+        <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
+          <SignUpForm />
+        </div>
       </div>
     </Suspense>
   )

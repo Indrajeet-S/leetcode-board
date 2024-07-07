@@ -11,6 +11,7 @@ import {
 } from "@/components/page-header"
 import Image from "next/image"
 import * as React from "react"
+import { CarouselPlugin } from "@/components/features-carousel"
 
 export default function Home() {
   return (
@@ -42,6 +43,10 @@ export default function Home() {
             </Link>
           </PageActions>
         </PageHeader>
+
+        <div className="flex justify-center">
+          <CarouselPlugin />
+        </div>
       </div>
     </div>
   )

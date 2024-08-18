@@ -4,7 +4,7 @@ export const siteConfig = {
   description: "Virtual whiteboard for LeetCode problems",
   links: {
     twitter: "https://twitter.com/QBit__",
-    github: "https://github.com/Indrajeet-S",
+    github: "https://github.com/Indrajeet-S/leetcode-board",
     discord: "https://discord.com/users/858742600550580234",
   },
 }

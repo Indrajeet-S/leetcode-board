@@ -38,17 +38,17 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
+    <main className="h-screen overflow-hidden bg-background">
+      <div className="container h-full mx-auto flex flex-col px-4 py-8 md:py-12 lg:py-16">
+        
         {/* Header section */}
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl text-center flex-1 flex flex-col justify-center">
           <PageHeader className="pb-8 md:pb-12">
             <PageHeaderHeading className="mb-4">
               LeetCode Board
             </PageHeaderHeading>
             <PageHeaderDescription className="mb-6">
-              A Web App that allows any user to brainstorm problem ideas on a
-              Whiteboard!
+              A Web App that allows any user to brainstorm problem ideas on a Whiteboard!
             </PageHeaderDescription>
             <PageActions className="flex flex-col gap-4 sm:flex-row justify-center">
               <Link 
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
 
         {/* Feature Cards */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <Card key={index} className="relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="text-center">

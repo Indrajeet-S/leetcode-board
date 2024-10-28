@@ -8,20 +8,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Prerequisites
+### Prerequisites
 
-1. Install Node.js
+1. Install Node.js<br>
 Node.js is required to run JavaScript code on the server side. Download and install it from the official website, or if you’re using a package manager, use one of the following commands:<br>
 
- • macOS (with Homebrew):<br>
+• macOS (with Homebrew):<br>
 ```
 brew install node
 ```
- • Windows (with Chocolatey):
+• Windows (with Chocolatey):
 ```
 choco install nodejs
 ```
-2. Package Manager
+2. Package Manager<br>
 You can use npm, yarn, or pnpm to manage dependencies for the project. If Node.js is already installed, npm is included. You may also choose to install Yarn or pnpm:<br>
 
 • Yarn:

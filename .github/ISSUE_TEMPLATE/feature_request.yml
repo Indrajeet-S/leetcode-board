@@ -1,0 +1,58 @@
+name: Feature Request
+description: Suggest a new feature for the project.
+title: "[FEATURE]: "
+labels: ["enhancement", "feature request"]
+assignees: ""
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Feature Request
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have checked the existing issues."
+          required: true
+        - label: "I follow [Contributing Guidelines](https://github.com/Indrajeet-S/leetcode-board/blob/main/CONTRIBUTING.md) of this project."
+          required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Brief, descriptive title of the feature
+      placeholder: e.g., "Add dark mode option"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the feature you’d like to see.
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: Explain the problem this feature would address and why it’s important.
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution or approach to the problem.
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: List the main benefits or improvements this feature will bring to users.
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Provide any additional information related to the feature request.

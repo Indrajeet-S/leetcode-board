@@ -1,0 +1,58 @@
+name: Enhancement Suggestion
+description: Suggest an improvement to existing features or functionality.
+title: "[ENHANCEMENT]: "
+labels: ["enhancement"]
+assignees: ""
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Enhancement Suggestion
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have checked the existing issues."
+          required: true
+        - label: "I follow [Contributing Guidelines](https://github.com/Indrajeet-S/leetcode-board/blob/main/CONTRIBUTING.md) of this project."
+          required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Brief, descriptive title of the enhancement
+      placeholder: e.g., "Improve loading speed on dashboard"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the current functionality and suggested improvement.
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: Describe the existing behavior or functionality as it stands.
+
+  - type: textarea
+    id: proposed_improvement
+    attributes:
+      label: Proposed Improvement
+      description: Outline the suggested enhancement and how it will improve the user experience.
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: List the advantages or value this improvement would add.
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Provide any other information that might help in implementing this improvement.

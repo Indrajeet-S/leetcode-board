@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development # Change it to 'production' when needed
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    

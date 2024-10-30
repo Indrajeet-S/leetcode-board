@@ -12,6 +12,7 @@ import Image from "next/image"
 import * as React from "react"
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Pencil, Users, Brain, Code } from "lucide-react"
+import Login from "./login"
 
 export default function Home() {
   const features = [
@@ -77,6 +78,7 @@ export default function Home() {
                 />
                 Help
               </Link>
+              <Login />
             </PageActions>
           </PageHeader>
         </div>

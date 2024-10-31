@@ -10,7 +10,8 @@ import Image from "next/image"
 import * as React from "react"
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
 import { AppState, BinaryFiles, ExcalidrawInitialDataState } from "@excalidraw/excalidraw/types/types"
-import { getDocumentData, saveDocumentData } from "@/lib/firebase/crud"
+import { debounce } from "@/lib/utils"
+import { saveDocument } from "@/lib/firebase/client"
 
 interface ExcalidrawWrapperProps {
   identifier: string
@@ -37,7 +38,7 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
       const content = serializeAsJSON(elements, appState, files, "local")
 
       try {
-        await saveDocumentData("excalidraw", identifier, { content })
+        await saveDocument("excalidraw", identifier, { content })
         console.log("Data saved to Firestore")
       } catch (error) {
         console.error("Error saving data to Firestore:", error)
@@ -49,7 +50,7 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
 
   return (
     <div style={{ height: "90.5vh", width: "100%" }}>
-      <Excalidraw onChange={on_change} initialData={initialData}>
+      <Excalidraw onChange={debounce(on_change, 500)} initialData={initialData}>
         <WelcomeScreen>
           <WelcomeScreen.Hints.MenuHint />
           <WelcomeScreen.Hints.ToolbarHint />

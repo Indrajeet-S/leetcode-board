@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import ExcalidrawWrapper from "@/components/custom/excalidraw-wrapper"
 import { Suspense } from "react"
 import ExcalidrawSkeleton from "@/app/problems/[problemID]/loading"
+import { getDocumentData } from "@/lib/firebase/crud"
+import { ExcalidrawInitialDataState } from "@excalidraw/excalidraw/types/types"
 
 type Props = {
   params: {
@@ -15,18 +17,15 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   }
 }
 
-export default function ProblemID({ params }: Props) {
+export default async function ProblemID({ params }: Props) {
+  const data = await getDocumentData("excalidraw", params.problemID)
+  const initialData = JSON.parse(data?.content || null) as (ExcalidrawInitialDataState |null) ;
+
   return (
-    // <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
-    //   <div className="relative px-6 pt-10 pb-8 shadow-xl ring-1 ring-white/25 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-    //     <div className="flex">
-    //       <div>Hello {params.problemID}</div>
-    //     </div>
-    //   </div>
-    // </div>
+
     <Suspense fallback={<ExcalidrawSkeleton />}>
       <div className="z-100">
-        <ExcalidrawWrapper identifier={params.problemID} />
+        <ExcalidrawWrapper identifier={params.problemID} initialData={initialData} />
       </div>
     </Suspense>
   )

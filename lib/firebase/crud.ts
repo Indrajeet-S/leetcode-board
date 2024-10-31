@@ -2,16 +2,15 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite"
 
-// Web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: `${process.env.NEXTJS_APP_API_KEY}`,
-  authDomain: `${process.env.NEXTJS_APP_AUTH_DOMAIN}`,
+  apiKey: process.env.NEXTJS_APP_API_KEY,
+  authDomain: process.env.NEXTJS_APP_AUTH_DOMAIN,
   projectId: "leetcode-board-373e7",
   storageBucket: "leetcode-board-373e7.appspot.com",
   messagingSenderId: "219772485394",
   appId: "1:219772485394:web:4acaa2694ce72639f1fdcb",
   measurementId: "G-257W47PGQ2",
-}
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)

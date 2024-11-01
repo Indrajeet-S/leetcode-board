@@ -10,7 +10,7 @@ import Image from "next/image"
 import * as React from "react"
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
 import { AppState, BinaryFiles, ExcalidrawInitialDataState } from "@excalidraw/excalidraw/types/types"
-import { useState } from "react"
+import { debounce } from "@/lib/utils"
 import { saveDocument } from "@/lib/firebase/client"
 
 interface ExcalidrawWrapperProps {
@@ -24,7 +24,7 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
   identifier,
   initialData
 }) => {
-  const [lastSceneVersion, setLastSceneVersion] = useState(-1)
+  let lastSceneVersion = -1
   const on_change = async (
     elements: readonly ExcalidrawElement[],
     appState: AppState,
@@ -32,23 +32,25 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
   ) => {
 
     const sceneVersion = getSceneVersion(elements)
+
     if (sceneVersion > lastSceneVersion) {
+      console.log("caching")
       const content = serializeAsJSON(elements, appState, files, "local")
+
       try {
-        const res = await saveDocument("excalidraw", identifier, { content })
-        if(res){
-          setLastSceneVersion(sceneVersion)
-        }
+        await saveDocument("excalidraw", identifier, { content })
+        console.log("Data saved to Firestore")
       } catch (error) {
         console.error("Error saving data to Firestore:", error)
       }
+      lastSceneVersion = sceneVersion
     }
   }
 
 
   return (
     <div style={{ height: "90.5vh", width: "100%" }}>
-      <Excalidraw onChange={on_change} initialData={initialData}>
+      <Excalidraw onChange={debounce(on_change, 500)} initialData={initialData}>
         <WelcomeScreen>
           <WelcomeScreen.Hints.MenuHint />
           <WelcomeScreen.Hints.ToolbarHint />

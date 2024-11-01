@@ -3,33 +3,15 @@ import { initializeApp } from "firebase/app"
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite"
 
 // Web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: `${process.env.NEXT_PUBLIC_APP_API_KEY}`,
-//   authDomain: `${process.env.NEXT_PUBLIC_APP_AUTH_DOMAIN}`,
-//   projectId: process.env.NEXT_PUBLIC_APP_PROJECT_ID,
-//   storageBucket: process.env.NEXT_PUBLIC_APP_STORAGE_BUCKET,
-//   messagingSenderId: process.env.NEXT_PUBLIC_APP_MESSAGING_SENDER_ID,
-//   appId: process.env.NEXT_PUBLIC_APP_APP_ID,
-//   measurementId: process.env.NEXT_PUBLIC_APP_MEASUREMENT_ID,
-// }
-// const firebaseConfig = {
-//   apiKey: process.env.NEXTJS_APP_API_KEY,
-//   authDomain: process.env.NEXTJS_APP_AUTH_DOMAIN,
-//   projectId: "leetboard-b2be5",
-//   storageBucket: "leetboard-b2be5.appspot.com",
-//   messagingSenderId: "711523201010",
-//   appId: "1:711523201010:web:aa4193f53a03312800056b",
-//   measurementId: "G-9EEPXL30FQ",
-// };
 const firebaseConfig = {
   apiKey: process.env.NEXTJS_APP_API_KEY,
   authDomain: process.env.NEXTJS_APP_AUTH_DOMAIN,
-  projectId: "leetcode-board-373e7",
-  storageBucket: "leetcode-board-373e7.appspot.com",
-  messagingSenderId: "219772485394",
-  appId: "1:219772485394:web:4acaa2694ce72639f1fdcb",
-  measurementId: "G-257W47PGQ2",
-};
+  projectId: process.env.NEXTJS_APP_PROJECT_ID,
+  storageBucket: process.env.NEXTJS_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXTJS_APP_MESSAGING_SENDER_ID,
+  appId: process.env.NEXTJS_APP_APP_ID,
+  measurementId: process.env.NEXTJS_APP_MEASUREMENT_ID,
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)

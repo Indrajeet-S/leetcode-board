@@ -9,72 +9,46 @@ import {
 import Image from "next/image"
 import * as React from "react"
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
-import { AppState, BinaryFiles } from "@excalidraw/excalidraw/types/types"
-import { getDocumentData, saveDocumentData } from "@/lib/firebase/crud"
+import { AppState, BinaryFiles, ExcalidrawInitialDataState } from "@excalidraw/excalidraw/types/types"
+import { useState } from "react"
+import { saveDocument } from "@/lib/firebase/client"
 
 interface ExcalidrawWrapperProps {
   identifier: string
+  initialData: ExcalidrawInitialDataState | null
 }
+
+
 
 const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({
   identifier,
+  initialData
 }) => {
-  let lastSceneVersion = -1
+  const [lastSceneVersion, setLastSceneVersion] = useState(-1)
   const on_change = async (
     elements: readonly ExcalidrawElement[],
     appState: AppState,
     files: BinaryFiles
   ) => {
-    console.log("Function invoked")
-    console.log(`excalidraw_${identifier}`)
 
     const sceneVersion = getSceneVersion(elements)
     if (sceneVersion > lastSceneVersion) {
-      console.log("caching")
       const content = serializeAsJSON(elements, appState, files, "local")
-
       try {
-        await saveDocumentData("excalidraw", identifier, { content })
-        console.log("Data saved to Firestore")
+        const res = await saveDocument("excalidraw", identifier, { content })
+        if(res){
+          setLastSceneVersion(sceneVersion)
+        }
       } catch (error) {
         console.error("Error saving data to Firestore:", error)
       }
-      lastSceneVersion = sceneVersion
     }
   }
 
-  const retriveInitialData = async () => {
-    try {
-      const data = await getDocumentData("excalidraw", identifier)
-      if (data && data.content) {
-        return JSON.parse(data.content)
-      }
-    } catch (error) {
-      console.error("Error retrieving data from Firestore:", error)
-    }
-    return null
-  }
-
-  const [initialData, setInitialData] = React.useState<any>(null)
-  const [loading, setLoading] = React.useState(true)
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const data = await retriveInitialData()
-      setInitialData(data)
-      // setLoading(false)
-    }
-
-    fetchData()
-  }, [identifier])
-
-  // if (loading) {
-  //   return <div>Loading...</div>
-  // }
 
   return (
     <div style={{ height: "90.5vh", width: "100%" }}>
-      <Excalidraw onChange={on_change} initialData={retriveInitialData()}>
+      <Excalidraw onChange={on_change} initialData={initialData}>
         <WelcomeScreen>
           <WelcomeScreen.Hints.MenuHint />
           <WelcomeScreen.Hints.ToolbarHint />

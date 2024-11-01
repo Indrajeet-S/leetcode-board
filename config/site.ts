@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://ui.shadcn.com",
   description: "Virtual whiteboard for LeetCode problems",
   links: {
-    twitter: "https://twitter.com/QBit__",
+    twitter: "https://twitter.com/QBit_069",
     github: "https://github.com/Indrajeet-S/leetcode-board",
     discord: "https://discord.com/users/858742600550580234",
   },

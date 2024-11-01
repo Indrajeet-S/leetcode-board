@@ -1,0 +1,69 @@
+name: Bug Report
+description: Report a bug to help us improve.
+title: "[BUG]: "
+labels: ["bug"]
+assignees: ""
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Bug Report
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have checked the existing issues."
+          required: true
+        - label: "I follow [Contributing Guidelines](https://github.com/Indrajeet-S/leetcode-board/blob/main/CONTRIBUTING.md) of this project."
+          required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Brief, descriptive title of the bug
+      placeholder: e.g., "Button not working on mobile"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps to reproduce the bug.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expected to happen.
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: Describe what actually happened.
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Describe the environment (e.g., OS, Browser, App Version)
+      placeholder: e.g., "Windows 10, Chrome v92.0"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Provide any additional information about the bug.
